@@ -10,25 +10,37 @@
                 "description": "Naming prefix for each new resource created. 2-char min, 8-char max, lowercase alphanumeric"
             }
         },
-        "domainName": {
-            "type": "string",
-            "metadata": {
-                "description": "DNS domain name for existing Active Directory domain"
-            }
-        },
+        
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Administrator of the existing Active Directory Domain"
+                "description": "Name of the Administrator of the VM"
             }
         },
         "adminPassword": {
             "type": "securestring",
             "minLength": 12,
             "metadata": {
-                "description": "Password for the Administrator account of the existing Active Directory Domain"
+                "description": "Password for the Administrator account of the VM"
             }
         },
+	"domainName": {
+            "type": "string",
+            "metadata": {
+                "description": "DNS domain name for existing Active Directory domain"
+            }
+        },
+“domainusername”:{
+	“type”:”string”,
+	“metadata”:{
+		“description”: “Username of the account on the domain”
+}
+},
+“domainpassword”:{
+“Type”:”securestring”,
+“metadata”:{
+	“description”: “Password of the account of the domain”}
+},
         "storageAccountType": {
             "type": "string",
             "allowedValues": [
@@ -127,7 +139,7 @@
         "vmNamePrefix": "[concat(parameters('namePrefix'),'-s2d-')]",
         "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
         "clusterName": "[concat(variables('vmNamePrefix'),'c')]",
-        "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
+        "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/NestedTemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
         "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
         "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
         "s2dConfigModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/config-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
@@ -237,7 +249,14 @@
                     "adminPassword": {
                         "value": "[parameters('adminPassword')]"
                     },
-                    "_artifactsLocation": {
+  	 	"domainusername": {
+                        "value": "[parameters('domainusername')]"
+                    },
+                    "domainpassword": {
+                        "value": "[parameters('domainpassword')]"
+                    },
+                 
+   "_artifactsLocation": {
                         "value": "[parameters('_artifactsLocation')]"
                     },
                     "_artifactsLocationSasToken": {
@@ -281,14 +300,14 @@
                     "properties": {
                         "domainName": "[parameters('domainName')]",
                         "adminCreds": {
-                            "userName": "[parameters('adminUsername')]",
-                            "password": "PrivateSettingsRef:adminPassword"
+                            "userName": "[parameters('domainusername')]",
+                            "password": "PrivateSettingsRef:domainpassword"
                         }
                     }
                 },
                 "protectedSettings": {
                     "items": {
-                        "adminPassword": "[parameters('adminPassword')]"
+                        "domainpassword": "[parameters('domainpassword')]"
                     }
                 }
             }
@@ -326,14 +345,14 @@
                             "password": "PrivateSettingsRef:witnessStorageKey"
                         },
                         "adminCreds": {
-                            "userName": "[parameters('adminUsername')]",
-                            "password": "PrivateSettingsRef:adminPassword"
+                            "userName": "[parameters('domainUsername')]",
+                            "password": "PrivateSettingsRef:domainPassword"
                         }
                     }
                 },
                 "protectedSettings": {
                     "items": {
-                        "adminPassword": "[parameters('adminPassword')]",
+                        "domainPassword": "[parameters('domainPassword')]",
                         "witnessStorageKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts',variables('witnessStorageName')),variables('apiVersionStorage')).keys[0].value]"
                     }
                 }

@@ -26,6 +26,12 @@
         "adminPassword": {
             "type": "securestring"
         },
+        "domainUsername": {
+            "type": "string"
+        },
+        "domainPassword": {
+            "type": "securestring"
+        },
         "imagePublisher": {
             "type": "string"
         },

@@ -53,7 +53,7 @@
         }
     },
     "variables": {
-        "diskSelectionTemplateUri": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/diskSelection.json',parameters('_artifactsLocationSasToken'))]"
+        "diskSelectionTemplateUri": "https://raw.githubusercontent.com/vikhyat-gt-work/S2D/master/NestedTemplates/diskselection.json"
     },
     "resources": [
         {

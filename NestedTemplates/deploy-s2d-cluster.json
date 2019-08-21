@@ -139,10 +139,10 @@
         "vmNamePrefix": "[concat(parameters('namePrefix'),'-s2d-')]",
         "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
         "clusterName": "[concat(variables('vmNamePrefix'),'c')]",
-        "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/NestedTemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
-        "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
+        "vmLoopTemplateURL": "https://raw.githubusercontent.com/vikhyat-gt-work/S2D/master/NestedTemplates/newvm.json",
+        "s2dPrepModulesURL": "https://github.com/vikhyat-gt-work/S2D/blob/master/dsc/prep-s2d.ps1.zip",
         "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
-        "s2dConfigModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/config-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
+        "s2dConfigModulesURL": "https://github.com/vikhyat-gt-work/S2D/blob/master/dsc/config-s2d.ps1.zip",
         "s2dConfigFunction": "ConfigS2D.ps1\\ConfigS2D"
     },
     "resources": [

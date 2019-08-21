@@ -140,9 +140,9 @@
         "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
         "clusterName": "[concat(variables('vmNamePrefix'),'c')]",
         "vmLoopTemplateURL": "https://raw.githubusercontent.com/vikhyat-gt-work/S2D/master/NestedTemplates/newvm.json",
-        "s2dPrepModulesURL": "https://github.com/vikhyat-gt-work/S2D/blob/master/dsc/prep-s2d.ps1.zip",
+        "s2dPrepModulesURL": "https://github.com/vikhyat-gt-work/S2D/tree/master/dsc/prep-s2d.ps1.zip",
         "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
-        "s2dConfigModulesURL": "https://github.com/vikhyat-gt-work/S2D/blob/master/dsc/config-s2d.ps1.zip",
+        "s2dConfigModulesURL": "https://github.com/vikhyat-gt-work/S2D/tree/master/dsc/config-s2d.ps1.zip",
         "s2dConfigFunction": "ConfigS2D.ps1\\ConfigS2D"
     },
     "resources": [

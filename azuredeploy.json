@@ -76,15 +76,15 @@
                 "description": "Password for the Administrator account for the VM"
             }
         },
-        "DomainUsername": {
+        "domainUsername": {
             "type": "string",
             "metadata": {
                 "description": "Name for the Domain Administrator of the existing Azure AD Domain Service"
             }
         },
-        "DomainPassword": {
+        "domainPassword": {
             "type": "securestring",
-            "minLength": 12,
+            "minLength": 6,
             "metadata": {
                 "description": "Password for the Domain Administrator of the existing Azure AD Domain Service"
             }
@@ -133,12 +133,12 @@
             "metadata": {
                 "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
             },
-            "defaultValue": "86b4947071d81043cc046c602416cefbba75a96b"
+            "defaultValue": ""
         }
     },
     "variables": {
         "subnetRef": "[resourceId(parameters('existingVirtualNetworkRGName'),'Microsoft.Network/virtualNetworks/subnets',parameters('existingVirtualNetworkName'),parameters('existingSubnetName'))]",
-        "deployS2DClusterTemplateURL": "[concat(parameters('_artifactsLocation'),'/NestedTemplates/deploy-s2d-cluster.json',parameters('_artifactsLocationSasToken'))]",
+        "deployS2DClusterTemplateURL": "https://raw.githubusercontent.com/vikhyat-gt-work/S2D/master/NestedTemplates/deploy-s2d-cluster.json",
         "deployS2DCluster": "deployS2DCluster"
     },
     "resources": [
@@ -165,6 +165,12 @@
                     },
                     "adminPassword": {
                         "value": "[parameters('adminPassword')]"
+                    },
+                    "domainUsername": {
+                        "value": "[parameters('domainUsername')]"
+                    },
+                    "domainPassword": {
+                        "value": "[parameters('domainPassword')]"
                     },
                     "storageAccountType": {
                         "value": "[parameters('storageAccountType')]"

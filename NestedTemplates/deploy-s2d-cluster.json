@@ -30,16 +30,16 @@
                 "description": "DNS domain name for existing Active Directory domain"
             }
         },
-“domainusername”:{
-	“type”:”string”,
-	“metadata”:{
-		“description”: “Username of the account on the domain”
+	    "domainusername":{
+		    "type":"string",
+	"metadata":{
+		"description": "Username of the account on the domain"
 }
 },
-“domainpassword”:{
-“Type”:”securestring”,
-“metadata”:{
-	“description”: “Password of the account of the domain”}
+"domainpassword":{
+"Type":"securestring",
+"metadata":{
+	"description": "Password of the account of the domain"}
 },
         "storageAccountType": {
             "type": "string",

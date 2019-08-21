@@ -30,15 +30,15 @@
                 "description": "DNS domain name for existing Active Directory domain"
             }
         },
-	    "domainusername":{
+	"domainUsername": {
 		    "type":"string",
 	"metadata":{
 		"description": "Username of the account on the domain"
 }
 },
-"domainpassword":{
-"Type":"securestring",
-"metadata":{
+	"domainPassword": {
+	"Type": "securestring",
+	"metadata":{
 	"description": "Password of the account of the domain"}
 },
         "storageAccountType": {
@@ -249,11 +249,11 @@
                     "adminPassword": {
                         "value": "[parameters('adminPassword')]"
                     },
-  	 	"domainusername": {
-                        "value": "[parameters('domainusername')]"
+  	 	    "domainUsername": {
+                        "value": "[parameters('domainUsername')]"
                     },
-                    "domainpassword": {
-                        "value": "[parameters('domainpassword')]"
+                    "domainPassword": {
+                        "value": "[parameters('domainPassword')]"
                     },
                  
    "_artifactsLocation": {
@@ -300,14 +300,14 @@
                     "properties": {
                         "domainName": "[parameters('domainName')]",
                         "adminCreds": {
-                            "userName": "[parameters('domainusername')]",
-                            "password": "PrivateSettingsRef:domainpassword"
+                            "userName": "[parameters('domainUsername')]",
+                            "password": "PrivateSettingsRef:domainPassword"
                         }
                     }
                 },
                 "protectedSettings": {
                     "items": {
-                        "domainpassword": "[parameters('domainpassword')]"
+                        "domainPassword": "[parameters('domainPassword')]"
                     }
                 }
             }

@@ -300,8 +300,8 @@
                     "properties": {
                         "domainName": "[parameters('domainName')]",
                         "adminCreds": {
-                            "userName": "GTAzureAdmin@grantthorntonca.onmicrosoft.com",
-                            "password": "Ruqo5197$1"
+                            "userName": "",
+                            "password": ""
                         }
                     }
                 },

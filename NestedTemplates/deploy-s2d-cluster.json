@@ -300,14 +300,14 @@
                     "properties": {
                         "domainName": "[parameters('domainName')]",
                         "adminCreds": {
-                            "userName": "",
-                            "password": ""
+                            "userName": "domainUsername",
+                            "password": "DomainPassword"
                         }
                     }
                 },
                 "protectedSettings": {
                     "items": {
-                        "domainPassword": ""
+                        "domainPassword": "domainPassword"
                     }
                 }
             }

@@ -121,7 +121,8 @@
             "type": "string"
         },
         "_artifactsLocationSasToken": {
-            "type": "string"
+            "type": "string",
+	"defaultValue":""
         },
         "location": {
             "type": "string",

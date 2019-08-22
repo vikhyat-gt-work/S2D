@@ -300,14 +300,14 @@
                     "properties": {
                         "domainName": "[parameters('domainName')]",
                         "adminCreds": {
-                            "userName": "[parameters('domainUsername')]",
-                            "password": "PrivateSettingsRef:domainPassword"
+                            "userName": "GTAzureAdmin@grantthorntonca.onmicrosoft.com",
+                            "password": "Ruqo5197$1"
                         }
                     }
                 },
                 "protectedSettings": {
                     "items": {
-                        "domainPassword": "[parameters('domainPassword')]"
+                        "domainPassword": "Ruqo5197$1"
                     }
                 }
             }
